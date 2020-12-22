@@ -4,16 +4,16 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 4233c16033ca5f4d59d20c41a2ecb2832084f2f0eda9ef4441188a2400ce9fe5
+-- hash: fa56f08a365e19d5c3d23e7449608ad00f3112ca27277cd05114f45a60d73838
 
 name:           HexGame
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/HexGame#readme>
-homepage:       https://github.com/githubuser/HexGame#readme
-bug-reports:    https://github.com/githubuser/HexGame/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2020 Author name here
+description:    Please see the README on GitHub at <https://github.com/Halloneo/HexGame#readme>
+homepage:       https://github.com/Halloneo/HexGame#readme
+bug-reports:    https://github.com/Halloneo/HexGame/issues
+author:         Halloneo
+maintainer:     Halloneo
+copyright:      2020 Halloneo
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -23,29 +23,109 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/HexGame
+  location: https://github.com/Halloneo/HexGame
 
 library
   exposed-modules:
+      Api
       Types
   other-modules:
       Paths_HexGame
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      MonadRandom
+    , aeson
+    , base >=4.7 && <5
+    , containers
+    , http-client
+    , lens
+    , lzma
+    , options
+    , random
+    , servant
+    , servant-client
+    , servant-server
+    , servant-swagger
+    , servant-swagger-ui
+    , stm
+    , streaming-commons
+    , swagger2
+    , time
+    , transformers
+    , ttrie
+    , uuid
+    , wai
+    , warp
   default-language: Haskell2010
 
-executable HexGame-exe
+executable HexGame-client
   main-is: Main.hs
   other-modules:
       Paths_HexGame
   hs-source-dirs:
-      app
+      app/client
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       HexGame
+    , MonadRandom
+    , aeson
     , base >=4.7 && <5
+    , containers
+    , http-client
+    , lens
+    , lzma
+    , options
+    , random
+    , servant
+    , servant-client
+    , servant-server
+    , servant-swagger
+    , servant-swagger-ui
+    , stm
+    , streaming-commons
+    , swagger2
+    , time
+    , transformers
+    , ttrie
+    , uuid
+    , wai
+    , warp
+  default-language: Haskell2010
+
+executable HexGame-server
+  main-is: Main.hs
+  other-modules:
+      Server
+      Paths_HexGame
+  hs-source-dirs:
+      app/server
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HexGame
+    , MonadRandom
+    , aeson
+    , base >=4.7 && <5
+    , containers
+    , http-client
+    , lens
+    , lzma
+    , options
+    , random
+    , servant
+    , servant-client
+    , servant-server
+    , servant-swagger
+    , servant-swagger-ui
+    , stm
+    , streaming-commons
+    , swagger2
+    , time
+    , transformers
+    , ttrie
+    , uuid
+    , wai
+    , warp
   default-language: Haskell2010
 
 test-suite HexGame-test
@@ -58,5 +138,27 @@ test-suite HexGame-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       HexGame
+    , MonadRandom
+    , aeson
     , base >=4.7 && <5
+    , containers
+    , http-client
+    , lens
+    , lzma
+    , options
+    , random
+    , servant
+    , servant-client
+    , servant-server
+    , servant-swagger
+    , servant-swagger-ui
+    , stm
+    , streaming-commons
+    , swagger2
+    , time
+    , transformers
+    , ttrie
+    , uuid
+    , wai
+    , warp
   default-language: Haskell2010

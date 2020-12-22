@@ -1,10 +1,10 @@
 name:                HexGame
 version:             0.1.0.0
-github:              "githubuser/HexGame"
+github:              "Halloneo/HexGame"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2020 Author name here"
+author:              "Halloneo"
+maintainer:          "Halloneo"
+copyright:           "2020 Halloneo"
 
 extra-source-files:
 - README.md
@@ -17,24 +17,56 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/HexGame#readme>
+description:         Please see the README on GitHub at <https://github.com/Halloneo/HexGame#readme>
 
 dependencies:
 - base >= 4.7 && < 5
+- random
+- containers
+- MonadRandom
+- transformers
+- aeson
+- servant
+- servant-server
+- servant-client
+- servant-swagger
+- servant-swagger-ui
+- swagger2
+- stm
+- wai
+- http-client
+- lens
+- uuid
+- warp
+- options
+- streaming-commons
+- ttrie
+- time
+- lzma
 
 library:
   source-dirs: src
 
 executables:
-  HexGame-exe:
+  HexGame-server:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:         app/server
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
     - HexGame
+
+  HexGame-client:
+    main: Main.hs
+    source-dirs: app/client
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - HexGame
 
 tests:
   HexGame-test:
